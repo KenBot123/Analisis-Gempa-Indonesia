@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Analisis Gempa Indonesia — BMKG + USGS</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="pulse"></span>
+      <h1>Pantau Gempa <span>Indonesia</span></h1>
+    </div>
+    <div class="actions">
+      <span id="lastUpdate" class="updated">Memuat data…</span>
+      <button id="refreshBtn" class="btn">↻ Refresh</button>
+    </div>
+  </header>
+
+  <div class="disclaimer">
+    ⚠️ Gempa <b>tidak dapat diprediksi</b> secara pasti. Situs ini menampilkan
+    <b>pemantauan real-time</b> + analisis tingkat bahaya dari data BMKG & USGS.
+  </div>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>Legenda Tingkat Bahaya</h2>
+        <ul class="legend">
+          <li><i style="background:#22c55e"></i> Rendah (M &lt; 5.0)</li>
+          <li><i style="background:#facc15"></i> Cukup Berbahaya (M 5.0 – 5.9)</li>
+          <li><i style="background:#ef4444"></i> Berbahaya (M ≥ 6.0 / Tsunami)</li>
+        </ul>
+      </section>
+
+      <section class="panel stats">
+        <h2>Statistik</h2>
+        <div class="stat-grid">
+          <div class="stat"><b id="statTotal">0</b><span>Total Gempa</span></div>
+          <div class="stat"><b id="statMax">0</b><span>Magnitudo Max</span></div>
+          <div class="stat"><b id="statTsunami">0</b><span>Potensi Tsunami</span></div>
+          <div class="stat"><b id="statFelt">0</b><span>Dirasakan</span></div>
+        </div>
+      </section>
+
+      <section class="panel list-panel">
+        <h2>Gempa Terbaru</h2>
+        <ul id="eventList" class="event-list"></ul>
+      </section>
+    </aside>
+
+    <div id="map"></div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
